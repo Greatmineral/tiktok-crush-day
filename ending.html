@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aku Menyukaimu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="endingAudio" loop preload="auto"></audio>
+    <div class="overlay"></div>
+
+    <main class="content ending">
+        <p class="small-text">I HAVE CRUSH ON YOU</p>
+        <h1 class="script">Aku Menyukaimu</h1>
+
+        <div class="image-box ending-image">
+            <img src="images/ending.jpg" alt="Manga couple">
+        </div>
+
+        <p class="small-text">Terima kasih sudah membaca sampai akhir ♡</p>
+    </main>
+
+    <script>
+        const endingAudio = document.getElementById('endingAudio');
+
+        // User-controlled source. Replace this string with your own audio file path.
+        const endingMusicSource = 'Classicals.de - Pachelbel - Canon in D major - P. 37.mp3';
+
+        if (endingMusicSource) {
+            endingAudio.src = endingMusicSource;
+        }
+
+        const startEndingMusic = () => {
+            if (!endingAudio.src) {
+                return;
+            }
+
+            if (endingAudio.paused) {
+                const playPromise = endingAudio.play();
+
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {
+                        endingAudio.muted = true;
+                    });
+                }
+            }
+        };
+
+        window.addEventListener('load', startEndingMusic);
+        window.addEventListener('pointerdown', startEndingMusic, { once: true });
+        window.addEventListener('keydown', startEndingMusic, { once: true });
+    </script>
+</body>
+</html>

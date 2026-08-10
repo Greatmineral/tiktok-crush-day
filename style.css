@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 15% 12%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 75% 20%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 45% 35%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 90% 55%, white 0 1px, transparent 2px),
+        #020205;
+    background-size: 110px 110px, 160px 160px, 130px 130px, 190px 190px;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    left: -15%;
+    bottom: -18%;
+    width: 130%;
+    height: 48%;
+    background:
+        linear-gradient(#ff1493 1px, transparent 1px),
+        linear-gradient(90deg, #ff1493 1px, transparent 1px);
+    background-size: 38px 38px;
+    transform: perspective(260px) rotateX(60deg);
+    transform-origin: bottom;
+    opacity: .55;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 35%, rgba(0,0,0,.25));
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: min(90vw, 620px);
+    text-align: center;
+}
+
+.small-text {
+    font-size: 16px;
+    margin-bottom: 25px;
+    opacity: .9;
+}
+
+h1 {
+    font-size: clamp(34px, 8vw, 64px);
+    margin-bottom: 15px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.8);
+}
+
+h2 {
+    font-size: clamp(20px, 5vw, 34px);
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.next-button {
+    display: inline-flex;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 42px;
+    animation: move 1.8s infinite;
+}
+
+@keyframes move {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+.image-box {
+    width: min(330px, 75vw);
+    aspect-ratio: 1;
+    margin: 0 auto 30px;
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.confession h1 {
+    font-size: clamp(28px, 7vw, 52px);
+}
+
+.question {
+    font-size: clamp(20px, 4.5vw, 30px);
+    line-height: 1.35;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 14px 32px;
+    background: #ff197c;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.script {
+    font-family: "Brush Script MT", cursive;
+    font-weight: 400;
+}
+
+.ending-image {
+    margin-top: 20px;
+    width: min(390px, 78vw);
+    aspect-ratio: 3 / 4;
+}
+
+.hearts {
+    display: none;
+}
